@@ -19,7 +19,7 @@ async def test_exlog():
         os.makedirs(dir_name, exist_ok=True)
         clear_logs(dir_name)
 
-    # Test 1: Basic synchronous logging
+    # Test 1: Basic synchronous logging 
     print("\n=== Test 1: Synchronous Logging ===")
     logger_sync = ExLog(log_level=1, log_dir=daily_log_dir, rotation="daily")
     logger_sync.dprint("This is a debug log.", level="debug")
