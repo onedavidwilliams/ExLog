@@ -1,0 +1,9 @@
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
+
+# Ignore temporary/virtual environment files
+venv/
+.env/
+__pycache__/
