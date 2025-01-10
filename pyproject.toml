@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "exlog"
+version = "0.1.0"
+description = "A flexible logging system with colorized output and file rotation support."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "David Williams", email = "deltaflyerguy5@gmail.com" }]
+requires-python = ">=3.7"
+keywords = ["logging", "colorized logging", "exlog"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/onedavidwilliams/ExLog"
+Issues = "https://github.com/onedavidwilliams/ExLog/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/exlog"]
