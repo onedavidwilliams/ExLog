@@ -141,7 +141,7 @@ class ExLog:
         Print a message with optional color, timestamp, and a custom tag.
         """
         numeric_level, level_name = self._resolve_level(level)
-        if numeric_level >= self.log_level:
+        if numeric_level >= self.log_level and numeric_level > 0:
             # Use the custom tag if provided
             level_name = custom_tag if custom_tag else level_name.upper()
 
@@ -167,7 +167,7 @@ class ExLog:
         Asynchronously print a message with optional color, timestamp, and a custom tag.
         """
         numeric_level, level_name = self._resolve_level(level)
-        if numeric_level >= self.log_level:
+        if numeric_level >= self.log_level and numeric_level > 0:
             # Use the custom tag if provided
             level_name = custom_tag if custom_tag else level_name.upper()
 
@@ -191,6 +191,7 @@ class ExLog:
         await asyncio.sleep(0)  # Yield control to event loop
 
     level_map = {
+        "notset": 0,
         "info": 1,
         "debug": 2,
         "warning": 3,
