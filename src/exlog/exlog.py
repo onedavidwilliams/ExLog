@@ -136,12 +136,15 @@ class ExLog:
                 return f"{timestamp}{message}"
         return f"{timestamp}[{level_name.upper()}] {message}"
 
-    def dprint(self, message, level=1, color=None, background_color=None, show_timestamp=True, time_format="24hr", custom_tag=None):
+    def dprint(self, message, level=None, color=None, background_color=None, show_timestamp=True, time_format="24hr", custom_tag=None):
         """
         Print a message with optional color, timestamp, and a custom tag.
         """
+        level = level if level is not None else self.log_level
         numeric_level, level_name = self._resolve_level(level)
-        if numeric_level >= self.log_level and numeric_level > 0:
+        if numeric_level == 0:
+            return
+        if numeric_level >= self.log_level:
             # Use the custom tag if provided
             level_name = custom_tag if custom_tag else level_name.upper()
 
@@ -162,11 +165,17 @@ class ExLog:
             # Log to file if enabled
             self._write_to_log_file(formatted_message)
 
-    async def adprint(self, message, level=1, color=None, background_color=None, show_timestamp=True, time_format="24hr", custom_tag=None):
+    async def adprint(self, message, level=0, color=None, background_color=None, show_timestamp=True, time_format="24hr", custom_tag=None):
         """
         Asynchronously print a message with optional color, timestamp, and a custom tag.
         """
+        
+        level = level if level is not None else self.log_level
         numeric_level, level_name = self._resolve_level(level)
+
+        if numeric_level == 0:
+            return
+
         if numeric_level >= self.log_level and numeric_level > 0:
             # Use the custom tag if provided
             level_name = custom_tag if custom_tag else level_name.upper()
