@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "exlog"
-version = "0.1.0"
+version = "0.1.3"
 description = "A flexible logging system with colorized output and file rotation support."
 readme = "README.md"
 license = { text = "MIT" }

@@ -1,4 +1,4 @@
-from exlog import ExLog
+from src.exlog.exlog import ExLog
 import os
 import asyncio
 # Utility function to clear logs for clean testing
@@ -75,8 +75,8 @@ async def test_exlog():
     # Test 11: Logging with log level set to 0 (disabled)
     print("\n=== Test 11: Disabled Log Level ===")
     logger_disabled = ExLog(log_level=0, log_dir="logs/disabled_logs")
-    logger_disabled.dprint("This log should NOT appear.", level="info")
-    await logger_disabled.adprint("This async log should NOT appear.", level="debug")
+    logger_disabled.dprint("This log should NOT appear.")
+    await logger_disabled.adprint("This async log should NOT appear.")
 
     print("\nAll tests completed!")
 

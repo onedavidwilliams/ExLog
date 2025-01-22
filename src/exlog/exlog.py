@@ -140,8 +140,12 @@ class ExLog:
         """
         Print a message with optional color, timestamp, and a custom tag.
         """
+        if self.log_level == 0:
+            return
+        
         level = level if level is not None else self.log_level
         numeric_level, level_name = self._resolve_level(level)
+
         if numeric_level == 0:
             return
         if numeric_level >= self.log_level:
@@ -169,7 +173,8 @@ class ExLog:
         """
         Asynchronously print a message with optional color, timestamp, and a custom tag.
         """
-        
+        if self.log_level == 0:
+            return
         level = level if level is not None else self.log_level
         numeric_level, level_name = self._resolve_level(level)
 

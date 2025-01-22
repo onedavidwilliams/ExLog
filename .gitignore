@@ -1,9 +1,14 @@
-# Ignore build artifacts
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Build and distribution artifacts
 build/
 dist/
 *.egg-info/
 
-# Ignore temporary/virtual environment files
+# Logs and virtual environments
+logs/
 venv/
-.env/
-__pycache__/
